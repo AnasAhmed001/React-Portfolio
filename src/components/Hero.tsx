@@ -73,7 +73,7 @@ const Hero = () => {
         <motion.svg
           className="absolute top-0 left-0 w-full h-full"
           viewBox="0 0 1000 1000"
-          style={{ opacity: useTransform(scrollYProgress, [0, 1], [0.5, 0.2]) }}
+          style={{ opacity: useTransform(scrollYProgress, [0, 1], [0.7, 0.3]) }}
         >
           {/* Animated circles */}
           <motion.circle
@@ -82,7 +82,7 @@ const Hero = () => {
             r="80"
             stroke="currentColor"
             strokeWidth="2"
-            className="text-primary/10"
+            className="text-primary/20"
             fill="none"
             initial="hidden"
             animate="visible"
@@ -95,7 +95,7 @@ const Hero = () => {
             r="100"
             stroke="currentColor"
             strokeWidth="2"
-            className="text-blue-500/10"
+            className="text-blue-500/20"
             fill="none"
             initial="hidden"
             animate="visible"
@@ -108,7 +108,7 @@ const Hero = () => {
             r="150"
             stroke="currentColor"
             strokeWidth="2"
-            className="text-primary/10"
+            className="text-primary/20"
             fill="none"
             initial="hidden"
             animate="visible"
@@ -121,7 +121,7 @@ const Hero = () => {
             r="80"
             stroke="currentColor"
             strokeWidth="2"
-            className="text-green-500/10"
+            className="text-green-500/20"
             fill="none"
             initial="hidden"
             animate="visible"
@@ -134,7 +134,7 @@ const Hero = () => {
             r="120"
             stroke="currentColor"
             strokeWidth="2"
-            className="text-yellow-500/10"
+            className="text-yellow-500/20"
             fill="none"
             initial="hidden"
             animate="visible"
@@ -147,7 +147,7 @@ const Hero = () => {
             d="M100,100 Q500,20 900,100"
             stroke="currentColor"
             strokeWidth="2"
-            className="text-primary/5"
+            className="text-primary/10"
             fill="none"
             initial="hidden"
             animate="visible"
@@ -158,7 +158,7 @@ const Hero = () => {
             d="M100,900 Q500,980 900,900"
             stroke="currentColor"
             strokeWidth="2" 
-            className="text-blue-500/5"
+            className="text-blue-500/10"
             fill="none"
             initial="hidden"
             animate="visible"
@@ -169,7 +169,7 @@ const Hero = () => {
             d="M100,400 C250,300 750,700 900,600"
             stroke="currentColor"
             strokeWidth="2"
-            className="text-green-500/5"
+            className="text-green-500/10"
             fill="none"
             initial="hidden"
             animate="visible"
@@ -195,7 +195,7 @@ const Hero = () => {
             custom={0}
             variants={rotateVariants}
           >
-            <rect width="60" height="60" rx="15" className="fill-primary/5" />
+            <rect width="60" height="60" rx="15" className="fill-primary/15" />
           </motion.svg>
         </motion.div>
 
@@ -215,7 +215,7 @@ const Hero = () => {
             custom={1}
             variants={rotateVariants}
           >
-            <polygon points="35,0 70,35 35,70 0,35" className="fill-blue-500/5" />
+            <polygon points="35,0 70,35 35,70 0,35" className="fill-blue-500/15" />
           </motion.svg>
         </motion.div>
 
@@ -235,7 +235,7 @@ const Hero = () => {
             custom={2}
             variants={rotateVariants}
           >
-            <circle cx="40" cy="40" r="40" className="fill-green-500/5" />
+            <circle cx="40" cy="40" r="40" className="fill-green-500/15" />
           </motion.svg>
         </motion.div>
 
@@ -255,7 +255,7 @@ const Hero = () => {
             custom={3}
             variants={rotateVariants}
           >
-            <polygon points="32.5,0 65,65 0,65" className="fill-yellow-500/5" />
+            <polygon points="32.5,0 65,65 0,65" className="fill-yellow-500/15" />
           </motion.svg>
         </motion.div>
       </div>
