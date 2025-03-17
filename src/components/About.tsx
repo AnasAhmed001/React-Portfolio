@@ -4,13 +4,38 @@ import { useRef } from "react";
 import AnimatedSection from "./AnimatedSection";
 import AnimatedText from "./AnimatedText";
 import { cn } from "@/lib/utils";
-import { Code, Gem, Globe, Lightbulb } from "lucide-react";
+import { BookOpen, GraduationCap, Award, Calendar } from "lucide-react";
+import { Separator } from "./ui/separator";
 
-const skills = [
-  { name: "Front-End", icon: <Code size={20} />, description: "Creating responsive, accessible, and performant user interfaces" },
-  { name: "Design", icon: <Gem size={20} />, description: "Crafting beautiful, intuitive, and functional user experiences" },
-  { name: "Innovation", icon: <Lightbulb size={20} />, description: "Finding creative solutions to complex problems" },
-  { name: "Global Reach", icon: <Globe size={20} />, description: "Building products that reach and resonate with users worldwide" },
+const educationItems = [
+  {
+    year: "2022",
+    degree: "Master's Degree in Computer Science",
+    institution: "Stanford University",
+    description: "Specialized in artificial intelligence and machine learning technologies with focus on neural networks.",
+    icon: <GraduationCap size={20} />,
+  },
+  {
+    year: "2020",
+    degree: "Bachelor's Degree in Software Engineering",
+    institution: "MIT",
+    description: "Graduated with honors. Focused on software architecture and web technologies.",
+    icon: <BookOpen size={20} />,
+  },
+  {
+    year: "2018",
+    degree: "Web Development Certification",
+    institution: "Udacity",
+    description: "Completed an intensive program covering modern front-end and back-end technologies.",
+    icon: <Award size={20} />,
+  },
+  {
+    year: "2016",
+    degree: "High School Diploma",
+    institution: "Tech Preparatory Academy",
+    description: "Graduated with distinction in mathematics and computer science.",
+    icon: <Calendar size={20} />,
+  },
 ];
 
 const About = () => {
@@ -98,28 +123,81 @@ const About = () => {
         <div className="mt-20">
           <AnimatedSection className="text-center mb-10" direction="up">
             <h3 className="text-2xl font-display font-semibold mb-2">
-              Core Specialties
+              Education Timeline
             </h3>
             <p className="max-w-xl mx-auto text-muted-foreground">
-              These key areas form the foundation of my work
+              My academic journey and professional development
             </p>
           </AnimatedSection>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {skills.map((skill, index) => (
+          <div className="relative max-w-3xl mx-auto">
+            {/* Timeline vertical line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border -ml-px" />
+
+            {educationItems.map((item, index) => (
               <AnimatedSection
-                key={skill.name}
+                key={index}
                 direction="up"
                 delay={0.2 + index * 0.1}
+                className="mb-12 last:mb-0"
               >
-                <div className="h-full glass rounded-xl p-6 transition-all duration-300 hover:shadow-md">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
-                    {skill.icon}
+                <div className={cn(
+                  "relative grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 items-center",
+                )}>
+                  {/* Left side content (for md screens and up) */}
+                  <div className={cn(
+                    "hidden md:block text-right",
+                    index % 2 === 1 ? "md:order-3 text-left" : "",
+                  )}>
+                    {index % 2 === 0 && (
+                      <>
+                        <h4 className="font-medium text-lg">{item.degree}</h4>
+                        <p className="text-muted-foreground">{item.institution}</p>
+                        <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                      </>
+                    )}
+                    {index % 2 === 1 && (
+                      <div className="glass rounded-xl p-4 transition-all duration-300 hover:shadow-md font-medium text-2xl text-primary">
+                        {item.year}
+                      </div>
+                    )}
                   </div>
-                  <h4 className="text-lg font-medium mb-2">{skill.name}</h4>
-                  <p className="text-sm text-muted-foreground">
-                    {skill.description}
-                  </p>
+
+                  {/* Mobile visible content */}
+                  <div className="md:hidden mb-4">
+                    <div className="glass rounded-xl p-3 inline-block mb-2 text-xl font-medium text-primary">
+                      {item.year}
+                    </div>
+                    <h4 className="font-medium text-lg">{item.degree}</h4>
+                    <p className="text-muted-foreground">{item.institution}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                  </div>
+
+                  {/* Middle icon */}
+                  <div className="relative flex justify-center items-center md:order-2">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 glass flex items-center justify-center z-10 border-4 border-background text-primary">
+                      {item.icon}
+                    </div>
+                  </div>
+
+                  {/* Right side content (for md screens and up) */}
+                  <div className={cn(
+                    "hidden md:block",
+                    index % 2 === 1 ? "md:order-1 text-right" : "",
+                  )}>
+                    {index % 2 === 1 && (
+                      <>
+                        <h4 className="font-medium text-lg">{item.degree}</h4>
+                        <p className="text-muted-foreground">{item.institution}</p>
+                        <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                      </>
+                    )}
+                    {index % 2 === 0 && (
+                      <div className="glass rounded-xl p-4 transition-all duration-300 hover:shadow-md font-medium text-2xl text-primary">
+                        {item.year}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </AnimatedSection>
             ))}
