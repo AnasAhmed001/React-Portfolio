@@ -130,71 +130,52 @@ const About = () => {
             </p>
           </AnimatedSection>
 
-          <div className="relative max-w-3xl mx-auto">
-            {/* Timeline vertical line */}
+          <div className="relative max-w-5xl mx-auto">
+            {/* Timeline central vertical line */}
             <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border -ml-px" />
 
+            {/* Education items in alternating layout */}
             {educationItems.map((item, index) => (
               <AnimatedSection
                 key={index}
-                direction="up"
+                direction={index % 2 === 0 ? "left" : "right"}
                 delay={0.2 + index * 0.1}
-                className="mb-12 last:mb-0"
+                className="mb-16 last:mb-0"
               >
-                <div className={cn(
-                  "relative grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 items-center",
-                )}>
-                  {/* Left side content (for md screens and up) */}
-                  <div className={cn(
-                    "hidden md:block text-right",
-                    index % 2 === 1 ? "md:order-3 text-left" : "",
-                  )}>
-                    {index % 2 === 0 && (
-                      <>
+                <div className="grid grid-cols-[1fr_auto_1fr] gap-4 items-center">
+                  {/* Left side */}
+                  <div className={index % 2 === 0 ? "pr-8" : "flex justify-end"}>
+                    {index % 2 === 0 ? (
+                      <div className="glass rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 text-right">
                         <h4 className="font-medium text-lg">{item.degree}</h4>
                         <p className="text-muted-foreground">{item.institution}</p>
-                        <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
-                      </>
-                    )}
-                    {index % 2 === 1 && (
-                      <div className="glass rounded-xl p-4 transition-all duration-300 hover:shadow-md font-medium text-2xl text-primary">
+                        <p className="text-sm text-muted-foreground mt-2">{item.description}</p>
+                      </div>
+                    ) : (
+                      <div className="glass rounded-xl py-3 px-5 inline-block text-xl font-medium text-primary">
                         {item.year}
                       </div>
                     )}
                   </div>
 
-                  {/* Mobile visible content */}
-                  <div className="md:hidden mb-4">
-                    <div className="glass rounded-xl p-3 inline-block mb-2 text-xl font-medium text-primary">
-                      {item.year}
-                    </div>
-                    <h4 className="font-medium text-lg">{item.degree}</h4>
-                    <p className="text-muted-foreground">{item.institution}</p>
-                    <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
-                  </div>
-
                   {/* Middle icon */}
-                  <div className="relative flex justify-center items-center md:order-2">
+                  <div className="flex justify-center items-center">
                     <div className="w-12 h-12 rounded-full bg-primary/10 glass flex items-center justify-center z-10 border-4 border-background text-primary">
                       {item.icon}
                     </div>
                   </div>
 
-                  {/* Right side content (for md screens and up) */}
-                  <div className={cn(
-                    "hidden md:block",
-                    index % 2 === 1 ? "md:order-1 text-right" : "",
-                  )}>
-                    {index % 2 === 1 && (
-                      <>
+                  {/* Right side */}
+                  <div className={index % 2 === 0 ? "flex justify-start" : "pl-8"}>
+                    {index % 2 === 0 ? (
+                      <div className="glass rounded-xl py-3 px-5 inline-block text-xl font-medium text-primary">
+                        {item.year}
+                      </div>
+                    ) : (
+                      <div className="glass rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
                         <h4 className="font-medium text-lg">{item.degree}</h4>
                         <p className="text-muted-foreground">{item.institution}</p>
-                        <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
-                      </>
-                    )}
-                    {index % 2 === 0 && (
-                      <div className="glass rounded-xl p-4 transition-all duration-300 hover:shadow-md font-medium text-2xl text-primary">
-                        {item.year}
+                        <p className="text-sm text-muted-foreground mt-2">{item.description}</p>
                       </div>
                     )}
                   </div>
