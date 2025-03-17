@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import AnimatedText from "./AnimatedText";
 import { cn } from "@/lib/utils";
+import { Download } from "lucide-react";
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -312,7 +313,8 @@ const Hero = () => {
           </motion.a>
           
           <motion.a
-            href="#contact"
+            href="/resume.pdf"
+            download="resume.pdf"
             className={cn(
               "inline-flex items-center justify-center rounded-md px-6 py-3",
               "font-medium text-sm",
@@ -328,7 +330,8 @@ const Hero = () => {
             }}
             whileTap={{ scale: 0.98 }}
           >
-            Contact Me
+            <Download className="mr-2 h-4 w-4" />
+            Download Resume
           </motion.a>
         </div>
       </motion.div>
