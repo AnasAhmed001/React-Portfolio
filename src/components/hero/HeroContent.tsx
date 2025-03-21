@@ -3,6 +3,7 @@ import { motion, MotionValue } from "framer-motion";
 import { cn } from "@/lib/utils";
 import AnimatedText from "../AnimatedText";
 import { Download } from "lucide-react";
+import TypewriterEffect from "../TypewriterEffect";
 
 interface HeroContentProps {
   y: MotionValue<string>;
@@ -10,6 +11,12 @@ interface HeroContentProps {
 }
 
 const HeroContent = ({ y, opacity }: HeroContentProps) => {
+  const skills = [
+    "Frontend Developer",
+    "Web Developer",
+    "MERN Stack Developer"
+  ];
+
   return (
     <motion.div
       className={cn(
@@ -28,10 +35,15 @@ const HeroContent = ({ y, opacity }: HeroContentProps) => {
       </motion.span>
       
       <AnimatedText
-        text="Crafting Digital Experiences with Precision"
-        className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6"
+        text="I am Anas Ahmed"
+        className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-4"
         once={true}
         delayOffset={0.3}
+      />
+
+      <TypewriterEffect
+        words={skills}
+        className="text-2xl sm:text-3xl text-primary font-medium mb-6"
       />
 
       <AnimatedText
