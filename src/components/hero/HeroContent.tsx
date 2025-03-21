@@ -25,21 +25,7 @@ const HeroContent = ({ y, opacity }: HeroContentProps) => {
       )}
       style={{ y, opacity }}
     >
-      {/* Left Column - Web Dev Image */}
-      <motion.div 
-        className="w-full md:w-5/12 flex justify-center"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.2 }}
-      >
-        <img 
-          src="/coding-animation.gif" 
-          alt="Web Development Animation" 
-          className="max-w-full rounded-lg shadow-xl"
-        />
-      </motion.div>
-      
-      {/* Right Column - Text Content */}
+      {/* Left Column - Text Content */}
       <motion.div className="w-full md:w-7/12 text-center md:text-left">
         <motion.span
           className="inline-block px-3 py-1 mb-6 text-xs font-medium rounded-full bg-primary/10 text-primary"
@@ -120,6 +106,20 @@ const HeroContent = ({ y, opacity }: HeroContentProps) => {
             Download Resume
           </motion.a>
         </div>
+      </motion.div>
+      
+      {/* Right Column - Web Dev Image */}
+      <motion.div 
+        className="w-full md:w-5/12 flex justify-center"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.2 }}
+      >
+        <img 
+          src="/coding-animation.gif" 
+          alt="Web Development Animation" 
+          className="max-w-full rounded-lg shadow-xl"
+        />
       </motion.div>
     </motion.div>
   );
