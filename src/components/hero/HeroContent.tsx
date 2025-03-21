@@ -116,9 +116,9 @@ const HeroContent = ({ y, opacity }: HeroContentProps) => {
         transition={{ delay: 0.2 }}
       >
         <img 
-          src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
-          alt="Web Development" 
-          className="max-w-full rounded-lg shadow-xl"
+          src="https://i.giphy.com/media/26tn33aiTi1jkl6H6/giphy.webp" 
+          alt="Web Development Animation" 
+          className="max-w-full rounded-lg shadow-xl object-cover h-[300px]"
         />
       </motion.div>
     </motion.div>
