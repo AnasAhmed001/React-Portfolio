@@ -19,7 +19,7 @@ const Hero = () => {
     <section
       id="home"
       ref={containerRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden py-12"
     >
       <HeroBackground scrollYProgress={scrollYProgress} />
       <HeroContent y={y} opacity={opacity} />
