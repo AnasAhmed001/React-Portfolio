@@ -116,8 +116,8 @@ const HeroContent = ({ y, opacity }: HeroContentProps) => {
         transition={{ delay: 0.2 }}
       >
         <img 
-          src="/coding-animation.gif" 
-          alt="Web Development Animation" 
+          src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
+          alt="Web Development" 
           className="max-w-full rounded-lg shadow-xl"
         />
       </motion.div>
