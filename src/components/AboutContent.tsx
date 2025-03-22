@@ -9,9 +9,11 @@ const AboutContent = () => {
       <AnimatedSection direction="left" delay={0.2}>
         <div className="aspect-square relative overflow-hidden rounded-2xl glass">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-lg font-medium text-muted-foreground">Profile Image</span>
-          </div>
+          <img 
+            src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80" 
+            alt="Anas Ahmed" 
+            className="w-full h-full object-cover"
+          />
         </div>
       </AnimatedSection>
 

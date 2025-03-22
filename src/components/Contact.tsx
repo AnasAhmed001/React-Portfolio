@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import { cn } from "@/lib/utils";
 import { Mail, MapPin, Send, Linkedin, Github } from "lucide-react";
+import { toast } from "sonner";
 
 const Contact = () => {
   const [formState, setFormState] = useState({
@@ -11,17 +12,45 @@ const Contact = () => {
     email: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormState(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formState);
-    // In a real application, you would send this data to a server
-    alert("Thanks for your message! This is a demo so the form doesn't actually submit.");
+    setIsSubmitting(true);
+    
+    try {
+      // Directly open the mailto link with the form data
+      const subject = `Contact from ${formState.name}`;
+      const body = `
+Name: ${formState.name}
+Email: ${formState.email}
+
+Message:
+${formState.message}
+      `;
+      
+      window.open(`mailto:hafizanasahmed8@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+      
+      // Show success message
+      toast.success("Email client opened! Send your message to complete the process.");
+      
+      // Reset form
+      setFormState({
+        name: "",
+        email: "",
+        message: ""
+      });
+    } catch (error) {
+      toast.error("There was a problem opening your email client.");
+      console.error("Error sending email:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -53,10 +82,10 @@ const Contact = () => {
                   <div>
                     <h4 className="text-sm font-medium mb-1">Email</h4>
                     <a 
-                      href="mailto:hello@example.com"
+                      href="mailto:hafizanasahmed8@gmail.com"
                       className="text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      hello@example.com
+                      hafizanasahmed8@gmail.com
                     </a>
                   </div>
                 </div>
@@ -175,12 +204,14 @@ const Contact = () => {
 
               <motion.button
                 type="submit"
+                disabled={isSubmitting}
                 className={cn(
                   "inline-flex items-center justify-center gap-2",
                   "rounded-md px-5 py-2.5",
                   "text-sm font-medium",
                   "bg-primary text-primary-foreground",
-                  "transition-all duration-300 ease-out"
+                  "transition-all duration-300 ease-out",
+                  isSubmitting && "opacity-70 cursor-not-allowed"
                 )}
                 whileHover={{ 
                   scale: 1.02,
@@ -188,7 +219,7 @@ const Contact = () => {
                 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span>Send Message</span>
+                <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
                 <Send size={16} />
               </motion.button>
             </form>
