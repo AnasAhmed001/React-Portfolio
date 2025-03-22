@@ -44,23 +44,15 @@ npm run dev
 
 ## 📁 Project Structure
 
-## Project info
-
-**URL**: https://lovable.dev/projects/3054486b-e7bf-4c5d-a433-b34227e0fc80
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/3054486b-e7bf-4c5d-a433-b34227e0fc80) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
 
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+If you want to work locally using your own IDE, you can clone this repo and push changes.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -68,10 +60,10 @@ Follow these steps:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+git clone https://github.com/AnasAhmed001/React-Portfolio.git
 
 # Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+cd React-Portfolio
 
 # Step 3: Install the necessary dependencies.
 npm i
@@ -94,13 +86,6 @@ npm run dev
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/3054486b-e7bf-4c5d-a433-b34227e0fc80) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
 
 ## 🎨 Key Components
 
@@ -129,17 +114,5 @@ The portfolio is fully responsive and optimized for:
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check [issues page](issues-link).
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Contact
-
-- LinkedIn: [Your LinkedIn]
-- GitHub: [Your GitHub]
-- Email: [Your Email]
-
----
 
 Made with ❤️ by Anas Ahmed
