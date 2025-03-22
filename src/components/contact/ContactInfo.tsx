@@ -32,7 +32,7 @@ const ContactInfo = () => {
             <div>
               <h4 className="text-sm font-medium mb-1">Location</h4>
               <p className="text-muted-foreground">
-                San Francisco, California
+                Karachi, Pakistan
               </p>
             </div>
           </div>
@@ -48,17 +48,17 @@ const ContactInfo = () => {
         </p>
         <div className="flex gap-3">
           <motion.a
-            href="https://linkedin.com"
+            href="www.linkedin.com/in/anas-ahmed01"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground"
-            whileHover={{ y: -3, backgroundColor: "#0077B5", color: "#fff" }}
+            whileHover={{ y: -3, backgroundColor: "#333", color: "#fff" }}
             transition={{ duration: 0.2 }}
           >
             <Linkedin size={18} />
           </motion.a>
           <motion.a
-            href="https://github.com"
+            href="https://github.com/AnasAhmed001"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground"

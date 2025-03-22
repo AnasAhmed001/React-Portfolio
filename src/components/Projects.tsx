@@ -26,25 +26,25 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: "Portfolio Website",
-    description: "Personal portfolio showcasing projects and skills",
-    image: "/placeholder.svg",
-    tags: ["React", "Framer Motion", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "#"
+    title: "Weather App",
+    description: "Built a beautiful weather app using ReactJS and tailwind CSS. Featuring a Responsive UI and geolocation to get user current loacation and display the weather using OpenWeatherApi.",
+    image: "/weather-app.jpg",
+    tags: ["React", "TypeScript", "Tailwind CSS"],
+    liveUrl: "https://react-weather-app-eosin-iota.vercel.app/",
+    githubUrl: "https://github.com/AnasAhmed001/React-Weather-App"
   },
   {
     id: 4,
-    title: "Mobile Banking App",
-    description: "Secure and user-friendly financial management application",
-    image: "/placeholder.svg",
-    tags: ["React Native", "Redux", "Firebase"],
-    liveUrl: "#",
-    githubUrl: "#"
+    title: "A Responsive Landing Page",
+    description: "Created a responsive landing page using HTML, CSS, JavaScript. Featuring smooth Scrolling, responsive design and smooth animations",
+    image: "/Landing_page.png",
+    tags: ["HTML/CSS"],
+    liveUrl: "https://htmlcssresponsive.netlify.app/",
+    githubUrl: "https://github.com/AnasAhmed001/Task1-HTML-CSS"
   },
 ];
 
-const filterOptions = ["All", "React", "Next.js", "TypeScript",];
+const filterOptions = ["All", "React", "Next.js", "HTML/CSS",];
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All");
