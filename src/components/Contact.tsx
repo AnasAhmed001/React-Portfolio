@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import { cn } from "@/lib/utils";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send, Linkedin, Github } from "lucide-react";
 
 const Contact = () => {
   const [formState, setFormState] = useState({
@@ -83,17 +83,26 @@ const Contact = () => {
                 Follow me on social media or reach out directly. I'm always open to new opportunities and collaborations.
               </p>
               <div className="flex gap-3">
-                {["Twitter", "LinkedIn", "GitHub", "Dribbble"].map((platform) => (
-                  <motion.a
-                    key={platform}
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground"
-                    whileHover={{ y: -3, backgroundColor: "#000", color: "#fff" }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {platform.charAt(0)}
-                  </motion.a>
-                ))}
+                <motion.a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground"
+                  whileHover={{ y: -3, backgroundColor: "#0077B5", color: "#fff" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Linkedin size={18} />
+                </motion.a>
+                <motion.a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground"
+                  whileHover={{ y: -3, backgroundColor: "#333", color: "#fff" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Github size={18} />
+                </motion.a>
               </div>
             </div>
           </AnimatedSection>
