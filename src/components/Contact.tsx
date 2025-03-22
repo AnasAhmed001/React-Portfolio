@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
@@ -21,10 +20,17 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate form
+    if (!formState.name || !formState.email || !formState.message) {
+      toast.error("Please fill in all fields");
+      return;
+    }
+    
     setIsSubmitting(true);
     
     try {
-      // Directly open the mailto link with the form data
+      // Prepare email content
       const subject = `Contact from ${formState.name}`;
       const body = `
 Name: ${formState.name}
@@ -34,17 +40,27 @@ Message:
 ${formState.message}
       `;
       
-      window.open(`mailto:hafizanasahmed8@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+      // Try to open mail client with mailto link
+      const mailtoLink = `mailto:hafizanasahmed8@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const windowRef = window.open(mailtoLink);
       
-      // Show success message
-      toast.success("Email client opened! Send your message to complete the process.");
-      
-      // Reset form
-      setFormState({
-        name: "",
-        email: "",
-        message: ""
-      });
+      // Check if mailto was successful
+      if (!windowRef || windowRef.closed || typeof windowRef.closed === 'undefined') {
+        // If mail client didn't open, provide alternate instructions
+        toast.info("Your email app didn't open automatically. You can manually send an email to hafizanasahmed8@gmail.com", {
+          duration: 5000,
+        });
+      } else {
+        // Success message
+        toast.success("Email client opened! Send your message to complete the process.");
+        
+        // Reset form
+        setFormState({
+          name: "",
+          email: "",
+          message: ""
+        });
+      }
     } catch (error) {
       toast.error("There was a problem opening your email client.");
       console.error("Error sending email:", error);
