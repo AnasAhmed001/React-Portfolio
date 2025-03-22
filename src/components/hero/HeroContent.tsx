@@ -39,7 +39,7 @@ const HeroContent = ({ y, opacity }: HeroContentProps) => {
         <div className="mb-4">
           <AnimatedText
             text="HI,"
-            className="text-4xl sm:text-5xl md:text-6xl font-display font-bold inline-block mr-2"
+            className="text-4xl sm:text-5xl md:text-6xl font-display font-bold block mr-2"
             once={true}
             delayOffset={0.2}
           />
@@ -85,8 +85,8 @@ const HeroContent = ({ y, opacity }: HeroContentProps) => {
           </motion.a>
           
           <motion.a
-            href="/resume.pdf"
-            download="resume.pdf"
+            href="/Anas Ahmed resume.pdf"
+            download="Anas Ahmed resume.pdf"
             className={cn(
               "inline-flex items-center justify-center rounded-md px-6 py-3",
               "font-medium text-sm",

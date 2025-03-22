@@ -1,4 +1,48 @@
-# Welcome to your Lovable project
+# Personal Portfolio Website
+
+A modern, responsive portfolio website built with React, TypeScript, and Framer Motion. This portfolio showcases my work, skills, and professional experience with smooth animations and a clean design.
+
+## 🚀 Features
+
+- Responsive design that works on all devices
+- Smooth scroll animations using Framer Motion
+- Dynamic hero section with typewriter effect
+- Project showcase with filtering capability
+- Interactive contact form
+- Social media integration
+- Education timeline
+- Modern UI components using shadcn-ui
+- Dark mode support
+
+## 🛠️ Technologies Used
+
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- shadcn-ui
+- Vite
+
+## 🏃‍♂️ Getting Started
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Run the development server:
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:5173](http://localhost:5173) in your browser to see the result.
+
+## 📁 Project Structure
 
 ## Project info
 
@@ -50,16 +94,6 @@ npm run dev
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/3054486b-e7bf-4c5d-a433-b34227e0fc80) and click on Share -> Publish.
@@ -67,3 +101,45 @@ Simply open [Lovable](https://lovable.dev/projects/3054486b-e7bf-4c5d-a433-b3422
 ## I want to use a custom domain - is that possible?
 
 We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+
+## 🎨 Key Components
+
+- **Hero Section**: Dynamic introduction with animated text and typewriter effect
+- **About Section**: Personal introduction with animated sections
+- **Projects**: Filterable project showcase
+- **Contact**: Contact form with social media links
+- **Education Timeline**: Interactive timeline showing educational background
+
+## 🔧 Customization
+
+To customize the content:
+
+1. Update the personal information in the components
+2. Modify the project list in `Projects.tsx`
+3. Update social media links in `ContactInfo.tsx`
+4. Customize the styling using Tailwind CSS classes
+
+## 📱 Responsive Design
+
+The portfolio is fully responsive and optimized for:
+- Mobile devices
+- Tablets
+- Desktop screens
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check [issues page](issues-link).
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Contact
+
+- LinkedIn: [Your LinkedIn]
+- GitHub: [Your GitHub]
+- Email: [Your Email]
+
+---
+
+Made with ❤️ by Anas Ahmed

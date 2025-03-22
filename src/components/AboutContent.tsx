@@ -10,7 +10,7 @@ const AboutContent = () => {
         <div className="aspect-square relative overflow-hidden rounded-2xl glass">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10" />
           <img 
-            src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80" 
+            src="/Black Profile Pic.png" 
             alt="Anas Ahmed" 
             className="w-full h-full object-cover"
           />
@@ -23,7 +23,7 @@ const AboutContent = () => {
             <span className="highlight-text">Who I Am</span>
           </h3>
           <p className="text-muted-foreground">
-            I'm a passionate designer and developer with a keen eye for detail and a love for creating beautiful, functional user experiences. With years of experience in the digital space, I've honed my skills to deliver projects that not only look stunning but also perform flawlessly.
+          I'm a junior MERN Stack Developer with a solid understanding of frontend development. I enjoy building user-friendly and visually appealing interfaces while continuously learning and improving my skills. My focus is on creating functional and responsive web applications that provide a smooth user experience.
           </p>
         </div>
 
@@ -32,7 +32,7 @@ const AboutContent = () => {
             <span className="highlight-text">My Approach</span>
           </h3>
           <p className="text-muted-foreground">
-            I believe in the power of simplicity, elegance, and purpose. Every pixel I place and every line of code I write serves a specific function. By blending artistic sensibility with technical expertise, I create digital products that exceed expectations.
+          I believe in clean and purposeful design. Every line of code I write and every element I style has a reason behind it. By combining creativity with technical skills, I strive to build user-friendly and effective digital experiences.
           </p>
         </div>
 

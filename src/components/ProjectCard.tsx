@@ -38,7 +38,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="text-lg text-muted-foreground">
-            {project.title} Image
+            <img src={project.image} alt="" />
           </div>
         </motion.div>
       </div>

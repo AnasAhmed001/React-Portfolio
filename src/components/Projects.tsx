@@ -8,21 +8,21 @@ import { cn } from "@/lib/utils";
 const projects: Project[] = [
   {
     id: 1,
-    title: "Minimalist Dashboard",
-    description: "A clean, modern dashboard interface with intuitive data visualization",
-    image: "/placeholder.svg",
-    tags: ["React", "Tailwind CSS", "Recharts"],
-    liveUrl: "#",
-    githubUrl: "#"
+    title: "Blogging App",
+    description: "A clean, modern Blogging App built using ReactJS, Tailwind CSS, DaisyUI. It includes Firebase Authentication and Firestorage for seamless data storage and retrieval",
+    image: "/Blogging_App.webp",
+    tags: ["React", "Tailwind CSS", "DaisyUI", "Firebase"],
+    liveUrl: "https://react-blogging-website-phi.vercel.app/",
+    githubUrl: "https://github.com/AnasAhmed001/React-blogging-website"
   },
   {
     id: 2,
-    title: "E-commerce Platform",
-    description: "Elegant shopping experience with seamless checkout process",
-    image: "/placeholder.svg",
-    tags: ["Next.js", "TypeScript", "Stripe"],
-    liveUrl: "#",
-    githubUrl: "#"
+    title: "Meme Maker App",
+    description: "Built a Meme Maker App using NextJS and TailwindCSS which comes with in which user can create and download ",
+    image: "/meme_maker.jpg",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    liveUrl: "https://meme-maker-drab.vercel.app/",
+    githubUrl: "https://github.com/AnasAhmed001/meme-maker"
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ const projects: Project[] = [
   },
 ];
 
-const filterOptions = ["All", "React", "Next.js", "TypeScript", "Tailwind CSS"];
+const filterOptions = ["All", "React", "Next.js", "TypeScript",];
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All");
