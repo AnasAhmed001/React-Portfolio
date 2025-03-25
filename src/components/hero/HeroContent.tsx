@@ -38,7 +38,7 @@ const HeroContent = ({ y, opacity }: HeroContentProps) => {
         
         <div className="mb-4">
           <AnimatedText
-            text="HI,"
+            text="Hi,"
             className="text-4xl sm:text-5xl md:text-6xl font-display font-bold block mr-2"
             once={true}
             delayOffset={0.2}
