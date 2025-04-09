@@ -85,7 +85,7 @@ const HeroContent = ({ y, opacity }: HeroContentProps) => {
           </motion.a>
           
           <motion.a
-            href="/Anas Ahmed resume.pdf"
+            href="/Best Resume.pdf"
             download="Anas Ahmed resume.pdf"
             className={cn(
               "inline-flex items-center justify-center rounded-md px-6 py-3",
