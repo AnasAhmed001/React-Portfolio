@@ -16,6 +16,24 @@ const links: NavLink[] = [
   { name: "Contact", href: "#contact" },
 ];
 
+// Add section offsets for direct scrolling
+const getSectionPosition = (sectionId: string): number => {
+  const sectionElement = document.getElementById(sectionId);
+  if (sectionElement) {
+    return sectionElement.offsetTop - 80; // Subtract header height for better positioning
+  }
+  
+  // Fallback positions if elements aren't found
+  const fallbackPositions: Record<string, number> = {
+    'home': 0,
+    'about': window.innerHeight,
+    'projects': window.innerHeight * 2,
+    'contact': window.innerHeight * 3
+  };
+  
+  return fallbackPositions[sectionId] || 0;
+};
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -50,12 +68,18 @@ const Header = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const targetId = href.substring(1);
-    const element = document.getElementById(targetId);
     
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setMobileMenuOpen(false);
-    }
+    // Close mobile menu first
+    setMobileMenuOpen(false);
+    
+    // Delay scrolling slightly to allow menu to close
+    setTimeout(() => {
+      const yPosition = getSectionPosition(targetId);
+      window.scrollTo({
+        top: yPosition,
+        behavior: "smooth"
+      });
+    }, 10);
   };
 
   return (
@@ -121,7 +145,7 @@ const Header = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            className="absolute top-full left-0 w-full bg-background border-b border-border md:hidden"
+            className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-md border-b border-border md:hidden"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
