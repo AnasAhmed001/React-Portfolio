@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -48,6 +47,17 @@ const Header = () => {
 
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.substring(1);
+    const element = document.getElementById(targetId);
+    
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setMobileMenuOpen(false);
+    }
+  };
+
   return (
     <motion.header
       className={cn(
@@ -65,6 +75,7 @@ const Header = () => {
           href="#home"
           className="text-xl font-display font-semibold"
           whileHover={{ scale: 1.05 }}
+          onClick={(e) => handleNavClick(e, "#home")}
         >
           Portfolio
         </motion.a>
@@ -80,6 +91,7 @@ const Header = () => {
                 activeSection === link.href.substring(1) && "active"
               )}
               whileHover={{ y: -2 }}
+              onClick={(e) => handleNavClick(e, link.href)}
             >
               {link.name}
             </motion.a>
@@ -126,7 +138,7 @@ const Header = () => {
                       ? "text-foreground"
                       : "text-muted-foreground"
                   )}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                 >
                   {link.name}
                 </a>
