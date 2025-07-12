@@ -52,7 +52,6 @@ const HeroBackground = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      style={{ willChange: 'transform' }}
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background to-secondary/30" />
@@ -63,15 +62,14 @@ const HeroBackground = () => {
         <motion.svg
           className="absolute top-0 left-0 w-full h-full opacity-70"
           viewBox="0 0 1000 1000"
-          style={{ willChange: 'transform' }}
         >
-          {/* Animated circles */}
+          {/* Simplified animated elements */}
           <motion.circle
             cx="150"
             cy="150"
             r="80"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="1"
             className="text-primary/20"
             fill="none"
             initial="hidden"
@@ -84,7 +82,7 @@ const HeroBackground = () => {
             cy="150"
             r="100"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="1"
             className="text-blue-500/20"
             fill="none"
             initial="hidden"
@@ -97,7 +95,7 @@ const HeroBackground = () => {
             cy="500"
             r="150"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="1"
             className="text-primary/20"
             fill="none"
             initial="hidden"
@@ -105,65 +103,15 @@ const HeroBackground = () => {
             custom={2}
             variants={pathVariants}
           />
-          <motion.circle
-            cx="200"
-            cy="800"
-            r="80"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="text-green-500/20"
-            fill="none"
-            initial="hidden"
-            animate="visible"
-            custom={3}
-            variants={pathVariants}
-          />
-          <motion.circle
-            cx="800"
-            cy="700"
-            r="120"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="text-yellow-500/20"
-            fill="none"
-            initial="hidden"
-            animate="visible"
-            custom={4}
-            variants={pathVariants}
-          />
-
-          {/* Animated lines */}
-          <motion.path
-            d="M100,100 Q500,20 900,100"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="text-primary/10"
-            fill="none"
-            initial="hidden"
-            animate="visible"
-            custom={0}
-            variants={pathVariants}
-          />
           <motion.path
             d="M100,900 Q500,980 900,900"
             stroke="currentColor"
-            strokeWidth="2" 
+            strokeWidth="1" 
             className="text-blue-500/10"
             fill="none"
             initial="hidden"
             animate="visible"
             custom={1}
-            variants={pathVariants}
-          />
-          <motion.path
-            d="M100,400 C250,300 750,700 900,600"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="text-green-500/10"
-            fill="none"
-            initial="hidden"
-            animate="visible"
-            custom={2}
             variants={pathVariants}
           />
         </motion.svg>

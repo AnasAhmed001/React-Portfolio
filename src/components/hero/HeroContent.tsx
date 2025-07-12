@@ -21,7 +21,7 @@ const HeroContent = () => {
       initial={{ opacity: 0, transform: 'translateY(20px)' }}
       animate={{ opacity: 1, transform: 'translateY(0px)' }}
       transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-      style={{ willChange: 'transform' }}
+      
     >
       {/* Left Column - Text Content */}
       <motion.div 
@@ -29,7 +29,7 @@ const HeroContent = () => {
         initial={{ opacity: 0, transform: 'translateX(-30px)' }}
         animate={{ opacity: 1, transform: 'translateX(0px)' }}
         transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        style={{ willChange: 'transform' }}
+        
       >
         <motion.span
           className="inline-block px-3 py-1 mb-6 text-xs font-medium rounded-full bg-primary/10 text-primary"
@@ -72,7 +72,7 @@ const HeroContent = () => {
           initial={{ opacity: 0, transform: 'translateY(20px)' }}
           animate={{ opacity: 1, transform: 'translateY(0px)' }}
           transition={{ delay: 1.2, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          style={{ willChange: 'transform' }}
+          
         >
           <motion.a
             href="#projects"
@@ -118,7 +118,7 @@ const HeroContent = () => {
         initial={{ opacity: 0, transform: 'translateX(30px)' }}
         animate={{ opacity: 1, transform: 'translateX(0px)' }}
         transition={{ delay: 0.4, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        style={{ willChange: 'transform' }}
+        
       >
         <img 
           src="https://i.giphy.com/media/26tn33aiTi1jkl6H6/giphy.webp" 
