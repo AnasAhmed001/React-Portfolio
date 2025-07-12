@@ -44,7 +44,7 @@ const educationItems: EducationItem[] = [
 const EducationTimeline = () => {
   return (
     <motion.div 
-      className="mt-20"
+      className="mt-20 overflow-x-hidden max-w-full px-4 sm:px-6 lg:px-8"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.3 }}
@@ -52,7 +52,7 @@ const EducationTimeline = () => {
       style={{ willChange: 'transform' }}
     >
       <motion.div 
-        className="text-center mb-10"
+        className="text-center mb-10 max-w-full"
         initial={{ opacity: 0, transform: 'translateY(20px)' }}
         whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
         viewport={{ once: true }}
@@ -61,27 +61,27 @@ const EducationTimeline = () => {
         <h3 className="text-2xl font-display font-semibold mb-2">
           Education Timeline
         </h3>
-        <p className="max-w-xl mx-auto text-muted-foreground">
+        <p className="max-w-xl mx-auto text-muted-foreground px-4">
           My academic journey and professional development
         </p>
       </motion.div>
 
       <motion.div 
-        className="relative max-w-5xl mx-auto"
+        className="relative max-w-5xl mx-auto overflow-x-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         style={{ willChange: 'transform' }}
       >
-        {/* Timeline central vertical line */}
-        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border -ml-px" />
+        {/* Timeline central vertical line - hidden on mobile */}
+        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border -ml-px hidden md:block" />
 
-        {/* Education items in alternating layout */}
+        {/* Education items */}
         {educationItems.map((item, index) => (
           <motion.div
             key={index}
-            className="mb-16 last:mb-0"
+            className="mb-16 last:mb-0 max-w-full overflow-x-hidden"
             initial={{ opacity: 0, transform: 'translateY(30px)' }}
             whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
             viewport={{ once: true, amount: 0.3 }}
@@ -92,40 +92,61 @@ const EducationTimeline = () => {
             }}
             style={{ willChange: 'transform' }}
           >
-            <div className="grid grid-cols-[1fr_auto_1fr] gap-4 items-center">
+            {/* Mobile Layout */}
+            <div className="md:hidden flex flex-col items-center text-center space-y-4 max-w-full">
+              {/* Icon */}
+              <div className="w-12 h-12 rounded-full bg-primary/10 glass flex items-center justify-center border-4 border-background text-primary">
+                {item.icon}
+              </div>
+              
+              {/* Year Badge */}
+              <div className="glass rounded-xl py-2 px-4 text-lg font-medium text-primary">
+                {item.year}
+              </div>
+              
+              {/* Content Card */}
+              <div className="glass rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 w-full max-w-sm">
+                <h4 className="font-medium text-lg mb-2">{item.degree}</h4>
+                <p className="text-muted-foreground mb-2">{item.institution}</p>
+                <p className="text-sm text-muted-foreground">{item.description}</p>
+              </div>
+            </div>
+
+            {/* Desktop Layout */}
+            <div className="hidden md:grid grid-cols-[1fr_auto_1fr] gap-4 items-center max-w-full">
               {/* Left side */}
-              <div className={index % 2 === 0 ? "pr-8" : "flex justify-end"}>
+              <div className={`${index % 2 === 0 ? "pr-4 lg:pr-8" : "flex justify-end"} max-w-full overflow-hidden`}>
                 {index % 2 === 0 ? (
-                  <div className="glass rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 text-right">
-                    <h4 className="font-medium text-lg">{item.degree}</h4>
-                    <p className="text-muted-foreground">{item.institution}</p>
-                    <p className="text-sm text-muted-foreground mt-2">{item.description}</p>
+                  <div className="glass rounded-xl p-4 lg:p-6 shadow-sm hover:shadow-md transition-all duration-300 text-right max-w-full">
+                    <h4 className="font-medium text-lg break-words">{item.degree}</h4>
+                    <p className="text-muted-foreground break-words">{item.institution}</p>
+                    <p className="text-sm text-muted-foreground mt-2 break-words">{item.description}</p>
                   </div>
                 ) : (
-                  <div className="glass rounded-xl py-3 px-5 inline-block text-xl font-medium text-primary">
+                  <div className="glass rounded-xl py-3 px-4 lg:px-5 inline-block text-lg lg:text-xl font-medium text-primary max-w-full">
                     {item.year}
                   </div>
                 )}
               </div>
 
               {/* Middle icon */}
-              <div className="flex justify-center items-center">
+              <div className="flex justify-center items-center flex-shrink-0">
                 <div className="w-12 h-12 rounded-full bg-primary/10 glass flex items-center justify-center z-10 border-4 border-background text-primary">
                   {item.icon}
                 </div>
               </div>
 
               {/* Right side */}
-              <div className={index % 2 === 0 ? "flex justify-start" : "pl-8"}>
+              <div className={`${index % 2 === 0 ? "flex justify-start" : "pl-4 lg:pl-8"} max-w-full overflow-hidden`}>
                 {index % 2 === 0 ? (
-                  <div className="glass rounded-xl py-3 px-5 inline-block text-xl font-medium text-primary">
+                  <div className="glass rounded-xl py-3 px-4 lg:px-5 inline-block text-lg lg:text-xl font-medium text-primary max-w-full">
                     {item.year}
                   </div>
                 ) : (
-                  <div className="glass rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                    <h4 className="font-medium text-lg">{item.degree}</h4>
-                    <p className="text-muted-foreground">{item.institution}</p>
-                    <p className="text-sm text-muted-foreground mt-2">{item.description}</p>
+                  <div className="glass rounded-xl p-4 lg:p-6 shadow-sm hover:shadow-md transition-all duration-300 max-w-full">
+                    <h4 className="font-medium text-lg break-words">{item.degree}</h4>
+                    <p className="text-muted-foreground break-words">{item.institution}</p>
+                    <p className="text-sm text-muted-foreground mt-2 break-words">{item.description}</p>
                   </div>
                 )}
               </div>
