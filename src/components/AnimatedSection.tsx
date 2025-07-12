@@ -1,8 +1,7 @@
 
-import { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { ReactNode, useMemo, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { useAnimateInView } from "@/utils/animations";
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -21,36 +20,49 @@ const AnimatedSection = ({
   duration = 0.6,
   once = true,
 }: AnimatedSectionProps) => {
-  const { ref, isInView } = useAnimateInView({ once, amount: 0.3 });
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once, amount: 0.3 });
 
-  const getInitialPosition = () => {
+  const variants = useMemo(() => {
+    const initial = { opacity: 0 };
     switch (direction) {
       case "up":
-        return { opacity: 0, y: 40 };
+        Object.assign(initial, { y: 40 });
+        break;
       case "down":
-        return { opacity: 0, y: -40 };
+        Object.assign(initial, { y: -40 });
+        break;
       case "left":
-        return { opacity: 0, x: 40 };
+        Object.assign(initial, { x: 40 });
+        break;
       case "right":
-        return { opacity: 0, x: -40 };
-      case "none":
-        return { opacity: 0 };
+        Object.assign(initial, { x: -40 });
+        break;
       default:
-        return { opacity: 0, y: 40 };
+        break;
     }
-  };
+    return {
+      hidden: initial,
+      visible: {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        transition: {
+          duration,
+          delay,
+          ease: [0.22, 1, 0.36, 1],
+        },
+      },
+    };
+  }, [direction, duration, delay]);
 
   return (
     <motion.div
       ref={ref}
       className={cn(className)}
-      initial={getInitialPosition()}
-      animate={isInView ? { opacity: 1, x: 0, y: 0 } : getInitialPosition()}
-      transition={{
-        duration,
-        delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      variants={variants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
     >
       {children}
     </motion.div>

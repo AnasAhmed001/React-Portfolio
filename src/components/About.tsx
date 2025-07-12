@@ -23,7 +23,7 @@ const About = () => {
       {/* Background gradient */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-t from-secondary/50 to-background/0"
-        style={{ y: backgroundY }}
+        style={{ y: backgroundY, willChange: 'transform' }}
       />
 
       <div className="section-container relative z-10">
@@ -34,9 +34,6 @@ const About = () => {
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
             Turning Ideas Into Digital Reality
           </h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground">
-            I craft innovative digital experiences that bring brands to life, combining thoughtful design with technical excellence.
-          </p>
         </AnimatedSection>
 
         <AboutContent />

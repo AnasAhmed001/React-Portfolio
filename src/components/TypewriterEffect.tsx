@@ -14,9 +14,9 @@ interface TypewriterEffectProps {
 const TypewriterEffect = ({
   words,
   className,
-  typingSpeed = 100,
+  typingSpeed = 80,
   deletingSpeed = 50,
-  delayBetweenWords = 1500,
+  delayBetweenWords = 1200,
 }: TypewriterEffectProps) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");

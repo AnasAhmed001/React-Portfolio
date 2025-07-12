@@ -12,7 +12,7 @@ interface EducationItem {
 
 const educationItems: EducationItem[] = [
   {
-    year: "Present",
+    year: "2025 - Present",
     degree: "Bachelor's Degree In Computer Science",
     institution: "Federal Urdu University",
     description: "Pursuing a bachelor's in Computer Science, focusing on programming, data structures, algorithms, databases, and software development.",
@@ -42,38 +42,47 @@ const educationItems: EducationItem[] = [
 ];
 
 const EducationTimeline = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.2, // Start after container fades in
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
   return (
-    <motion.div 
-      className="mt-20 overflow-x-hidden max-w-full px-4 sm:px-6 lg:px-8"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      style={{ willChange: 'transform' }}
+    <motion.div
+      className="mt-20 px-4 sm:px-6 lg:px-8"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
     >
-      <motion.div 
-        className="text-center mb-10 max-w-full"
-        initial={{ opacity: 0, transform: 'translateY(20px)' }}
-        whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      <motion.div
+        className="text-center mb-10"
+        variants={itemVariants} // Animate the title block as the first item
       >
         <h3 className="text-2xl font-display font-semibold mb-2">
           Education Timeline
         </h3>
-        <p className="max-w-xl mx-auto text-muted-foreground px-4">
+        <p className="max-w-xl mx-auto text-muted-foreground">
           My academic journey and professional development
         </p>
       </motion.div>
 
-      <motion.div 
-        className="relative max-w-5xl mx-auto overflow-x-hidden"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        style={{ willChange: 'transform' }}
-      >
+      <div className="relative max-w-5xl mx-auto">
         {/* Timeline central vertical line - hidden on mobile */}
         <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border -ml-px hidden md:block" />
 
@@ -81,19 +90,11 @@ const EducationTimeline = () => {
         {educationItems.map((item, index) => (
           <motion.div
             key={index}
-            className="mb-16 last:mb-0 max-w-full overflow-x-hidden"
-            initial={{ opacity: 0, transform: 'translateY(30px)' }}
-            whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ 
-              duration: 0.6, 
-              delay: 0.1 * index, 
-              ease: [0.22, 1, 0.36, 1] 
-            }}
-            style={{ willChange: 'transform' }}
+            className="mb-16 last:mb-0"
+            variants={itemVariants} // Each item uses the same variant
           >
             {/* Mobile Layout */}
-            <div className="md:hidden flex flex-col items-center text-center space-y-4 max-w-full">
+            <div className="md:hidden flex flex-col items-center text-center space-y-4">
               {/* Icon */}
               <div className="w-12 h-12 rounded-full bg-primary/10 glass flex items-center justify-center border-4 border-background text-primary">
                 {item.icon}
@@ -113,17 +114,17 @@ const EducationTimeline = () => {
             </div>
 
             {/* Desktop Layout */}
-            <div className="hidden md:grid grid-cols-[1fr_auto_1fr] gap-4 items-center max-w-full">
+            <div className="hidden md:grid grid-cols-[1fr_auto_1fr] gap-4 items-center">
               {/* Left side */}
-              <div className={`${index % 2 === 0 ? "pr-4 lg:pr-8" : "flex justify-end"} max-w-full overflow-hidden`}>
+              <div className={`${index % 2 === 0 ? "pr-4 lg:pr-8" : "flex justify-end"}`}>
                 {index % 2 === 0 ? (
-                  <div className="glass rounded-xl p-4 lg:p-6 shadow-sm hover:shadow-md transition-all duration-300 text-right max-w-full">
+                  <div className="glass rounded-xl p-4 lg:p-6 shadow-sm hover:shadow-md transition-all duration-300 text-right">
                     <h4 className="font-medium text-lg break-words">{item.degree}</h4>
                     <p className="text-muted-foreground break-words">{item.institution}</p>
                     <p className="text-sm text-muted-foreground mt-2 break-words">{item.description}</p>
                   </div>
                 ) : (
-                  <div className="glass rounded-xl py-3 px-4 lg:px-5 inline-block text-lg lg:text-xl font-medium text-primary max-w-full">
+                  <div className="glass rounded-xl py-3 px-4 lg:px-5 inline-block text-lg lg:text-xl font-medium text-primary">
                     {item.year}
                   </div>
                 )}
@@ -137,13 +138,13 @@ const EducationTimeline = () => {
               </div>
 
               {/* Right side */}
-              <div className={`${index % 2 === 0 ? "flex justify-start" : "pl-4 lg:pl-8"} max-w-full overflow-hidden`}>
+              <div className={`${index % 2 === 0 ? "flex justify-start" : "pl-4 lg:pl-8"}`}>
                 {index % 2 === 0 ? (
-                  <div className="glass rounded-xl py-3 px-4 lg:px-5 inline-block text-lg lg:text-xl font-medium text-primary max-w-full">
+                  <div className="glass rounded-xl py-3 px-4 lg:px-5 inline-block text-lg lg:text-xl font-medium text-primary">
                     {item.year}
                   </div>
                 ) : (
-                  <div className="glass rounded-xl p-4 lg:p-6 shadow-sm hover:shadow-md transition-all duration-300 max-w-full">
+                  <div className="glass rounded-xl p-4 lg:p-6 shadow-sm hover:shadow-md transition-all duration-300">
                     <h4 className="font-medium text-lg break-words">{item.degree}</h4>
                     <p className="text-muted-foreground break-words">{item.institution}</p>
                     <p className="text-sm text-muted-foreground mt-2 break-words">{item.description}</p>
@@ -153,7 +154,7 @@ const EducationTimeline = () => {
             </div>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </motion.div>
   );
 };
