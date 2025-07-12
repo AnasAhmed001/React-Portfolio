@@ -1,7 +1,6 @@
 
 import { motion } from "framer-motion";
 import { BookOpen, GraduationCap, Award, Calendar } from "lucide-react";
-import AnimatedSection from "./AnimatedSection";
 
 interface EducationItem {
   year: string;
@@ -44,27 +43,54 @@ const educationItems: EducationItem[] = [
 
 const EducationTimeline = () => {
   return (
-    <div className="mt-20">
-      <AnimatedSection className="text-center mb-10" direction="up">
+    <motion.div 
+      className="mt-20"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      style={{ willChange: 'transform' }}
+    >
+      <motion.div 
+        className="text-center mb-10"
+        initial={{ opacity: 0, transform: 'translateY(20px)' }}
+        whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      >
         <h3 className="text-2xl font-display font-semibold mb-2">
           Education Timeline
         </h3>
         <p className="max-w-xl mx-auto text-muted-foreground">
           My academic journey and professional development
         </p>
-      </AnimatedSection>
+      </motion.div>
 
-      <div className="relative max-w-5xl mx-auto">
+      <motion.div 
+        className="relative max-w-5xl mx-auto"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        style={{ willChange: 'transform' }}
+      >
         {/* Timeline central vertical line */}
         <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border -ml-px" />
 
         {/* Education items in alternating layout */}
         {educationItems.map((item, index) => (
-          <AnimatedSection
+          <motion.div
             key={index}
-            direction={index % 2 === 0 ? "left" : "right"}
-            delay={0.2 + index * 0.1}
             className="mb-16 last:mb-0"
+            initial={{ opacity: 0, transform: 'translateY(30px)' }}
+            whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ 
+              duration: 0.6, 
+              delay: 0.1 * index, 
+              ease: [0.22, 1, 0.36, 1] 
+            }}
+            style={{ willChange: 'transform' }}
           >
             <div className="grid grid-cols-[1fr_auto_1fr] gap-4 items-center">
               {/* Left side */}
@@ -104,10 +130,10 @@ const EducationTimeline = () => {
                 )}
               </div>
             </div>
-          </AnimatedSection>
+          </motion.div>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
