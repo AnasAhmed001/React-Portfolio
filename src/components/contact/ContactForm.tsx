@@ -1,9 +1,9 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import { cn } from "@/lib/utils";
-import { Send } from "lucide-react";
 import { toast } from "sonner";
+import { Send } from "lucide-react";
 
 interface ContactFormProps {
   className?: string;
@@ -13,61 +13,53 @@ const ContactForm = ({ className }: ContactFormProps) => {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormState(prev => ({ ...prev, [name]: value }));
+    setFormState((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validate form
+
     if (!formState.name || !formState.email || !formState.message) {
       toast.error("Please fill in all fields");
       return;
     }
-    
-    setIsSubmitting(true);
-    
-    try {
-      // Prepare email content
-      const subject = `Contact from ${formState.name}`;
-      const body = `
-Name: ${formState.name}
-Email: ${formState.email}
 
-Message:
-${formState.message}
-      `;
-      
-      // Try to open mail client with mailto link
-      const mailtoLink = `mailto:hafizanasahmed8@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      const windowRef = window.open(mailtoLink);
-      
-      // Check if mailto was successful
-      if (!windowRef || windowRef.closed || typeof windowRef.closed === 'undefined') {
-        // If mail client didn't open, provide alternate instructions
-        toast.info("Your email app didn't open automatically. You can manually send an email to hafizanasahmed8@gmail.com", {
-          duration: 5000,
-        });
-      } else {
-        // Success message
-        toast.success("Email client opened! Send your message to complete the process.");
-        
-        // Reset form
-        setFormState({
-          name: "",
-          email: "",
-          message: ""
-        });
-      }
+    setIsSubmitting(true);
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      toast.error(
+        "Email service is not configured. Please contact the site administrator."
+      );
+      console.error("EmailJS environment variables are not set.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    const templateParams = {
+      from_name: formState.name,
+      from_email: formState.email,
+      message: formState.message,
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      toast.success("Message sent successfully!");
+      setFormState({ name: "", email: "", message: "" });
     } catch (error) {
-      toast.error("There was a problem opening your email client.");
-      console.error("Error sending email:", error);
+      toast.error("Failed to send message. Please try again later.");
+      console.error("EmailJS Error:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -150,9 +142,9 @@ ${formState.message}
           "transition-all duration-300 ease-out",
           isSubmitting && "opacity-70 cursor-not-allowed"
         )}
-        whileHover={{ 
+        whileHover={{
           scale: 1.02,
-          boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" 
+          boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
         }}
         whileTap={{ scale: 0.98 }}
       >

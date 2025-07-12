@@ -61,7 +61,7 @@ const HeroContent = () => {
         />
 
         <AnimatedText
-          text="I design and develop innovative digital solutions that blend aesthetics and functionality."
+          text="Mern stack developer with strong foundation in Frontend Technologies."
           className="text-muted-foreground text-lg max-w-2xl mb-10"
           once={true}
           delayOffset={0.8}
