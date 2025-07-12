@@ -20,7 +20,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex flex-col">
+    <div className="relative min-h-screen flex flex-col overflow-x-hidden max-w-full">
       {/* Progress bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-[2px] bg-primary z-[100] origin-left"

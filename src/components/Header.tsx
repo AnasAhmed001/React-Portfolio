@@ -72,14 +72,19 @@ const Header = () => {
     // Close mobile menu first
     setMobileMenuOpen(false);
     
-    // Delay scrolling slightly to allow menu to close
-    setTimeout(() => {
-      const yPosition = getSectionPosition(targetId);
-      window.scrollTo({
-        top: yPosition,
-        behavior: "smooth"
-      });
-    }, 10);
+    // Use requestAnimationFrame for smoother scrolling
+    requestAnimationFrame(() => {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const headerHeight = 80;
+        const targetPosition = targetElement.offsetTop - headerHeight;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth"
+        });
+      }
+    });
   };
 
   return (
