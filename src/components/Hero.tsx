@@ -1,5 +1,5 @@
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef } from "react";
 import HeroBackground from "./hero/HeroBackground";
 import HeroContent from "./hero/HeroContent";
@@ -7,24 +7,21 @@ import ScrollIndicator from "./hero/ScrollIndicator";
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section
+    <motion.section
       id="home"
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden py-12"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      style={{ willChange: 'transform' }}
     >
-      <HeroBackground scrollYProgress={scrollYProgress} />
-      <HeroContent y={y} opacity={opacity} />
+      <HeroBackground />
+      <HeroContent />
       <ScrollIndicator />
-    </section>
+    </motion.section>
   );
 };
 

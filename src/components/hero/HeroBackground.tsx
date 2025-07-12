@@ -1,12 +1,8 @@
 
-import { motion, useTransform, MotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 
-interface HeroBackgroundProps {
-  scrollYProgress: MotionValue<number>;
-}
-
-const HeroBackground = ({ scrollYProgress }: HeroBackgroundProps) => {
-  // SVG animation variants
+const HeroBackground = () => {
+  // Optimized animation variants - using transform only
   const pathVariants = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: (i: number) => ({
@@ -15,23 +11,23 @@ const HeroBackground = ({ scrollYProgress }: HeroBackgroundProps) => {
       transition: {
         pathLength: {
           duration: 2,
-          delay: i * 0.5,
+          delay: i * 0.3,
           ease: "easeInOut",
         },
         opacity: {
           duration: 0.5,
-          delay: i * 0.5,
+          delay: i * 0.3,
         }
       }
     })
   };
 
   const floatVariants = {
-    initial: { y: 0 },
+    initial: { transform: 'translateY(0px)' },
     animate: (i: number) => ({
-      y: [0, -15, 0],
+      transform: ['translateY(0px)', 'translateY(-10px)', 'translateY(0px)'],
       transition: {
-        duration: 3 + i, 
+        duration: 4 + i, 
         repeat: Infinity,
         ease: "easeInOut",
       }
@@ -39,11 +35,11 @@ const HeroBackground = ({ scrollYProgress }: HeroBackgroundProps) => {
   };
 
   const rotateVariants = {
-    initial: { rotate: 0 },
+    initial: { transform: 'rotate(0deg)' },
     animate: (i: number) => ({
-      rotate: i % 2 === 0 ? 360 : -360,
+      transform: `rotate(${i % 2 === 0 ? 360 : -360}deg)`,
       transition: {
-        duration: 20 + i * 5,
+        duration: 25 + i * 5,
         repeat: Infinity,
         ease: "linear",
       }
@@ -51,7 +47,13 @@ const HeroBackground = ({ scrollYProgress }: HeroBackgroundProps) => {
   };
 
   return (
-    <>
+    <motion.div 
+      className="absolute inset-0"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      style={{ willChange: 'transform' }}
+    >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background to-secondary/30" />
       
@@ -59,9 +61,9 @@ const HeroBackground = ({ scrollYProgress }: HeroBackgroundProps) => {
       <div className="absolute inset-0 w-full h-full -z-10 overflow-hidden">
         {/* Abstract geometric shapes */}
         <motion.svg
-          className="absolute top-0 left-0 w-full h-full"
+          className="absolute top-0 left-0 w-full h-full opacity-70"
           viewBox="0 0 1000 1000"
-          style={{ opacity: useTransform(scrollYProgress, [0, 1], [0.7, 0.3]) }}
+          style={{ willChange: 'transform' }}
         >
           {/* Animated circles */}
           <motion.circle
@@ -247,7 +249,7 @@ const HeroBackground = ({ scrollYProgress }: HeroBackgroundProps) => {
           </motion.svg>
         </motion.div>
       </div>
-    </>
+    </motion.div>
   );
 };
 
