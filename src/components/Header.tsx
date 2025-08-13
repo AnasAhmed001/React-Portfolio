@@ -12,6 +12,7 @@ type NavLink = {
 const links: NavLink[] = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];
@@ -45,7 +46,7 @@ const Header = () => {
       setIsScrolled(scrollY > 10);
       
       // Set active section based on scroll position
-      const sections = ["home", "about", "projects", "contact"];
+      const sections = ["home", "about", "experience", "projects", "contact"];
       
       for (const section of sections) {
         const element = document.getElementById(section);
