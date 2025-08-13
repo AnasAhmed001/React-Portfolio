@@ -16,45 +16,45 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     id: 1,
-    title: "Frontend Developer",
-    company: "Tech Solutions Inc.",
-    location: "Remote",
-    period: "2023 - Present",
+    title: "React.Js Developer Intern",
+    company: "Saylani Tech",
+    location: "Karachi, Pakistan (Onsite)",
+    period: "July 2025 - Present",
     description: [
-      "Developed responsive web applications using React and TypeScript",
-      "Collaborated with design teams to implement pixel-perfect UI components",
+      "Developed and maintained web applications using React and TypeScript",
+      "Led the development team to deliver new features on time and at high quality",
       "Optimized application performance resulting in 40% faster load times",
-      "Mentored junior developers and conducted code reviews"
+      "Worked using AWS and its image recognition services and S3 storage"
     ],
-    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Node.js"]
+    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "AWS"]
   },
   {
     id: 2,
-    title: "Web Developer Intern",
-    company: "Digital Agency Co.",
-    location: "New York, NY",
-    period: "2022 - 2023",
+    title: "React.Js Intern",
+    company: "Plural Dynamics",
+    location: "Karachi, Pakistan (Remote)",
+    period: "May 2025 - July 2025",
     description: [
-      "Built interactive websites for various clients using modern web technologies",
+      "Contributed to a student management sytem using React and ",
       "Worked closely with senior developers to learn best practices",
       "Implemented responsive designs and ensured cross-browser compatibility",
       "Assisted in debugging and testing web applications"
     ],
-    technologies: ["HTML/CSS", "JavaScript", "React", "Firebase", "Git"]
+    technologies: ["React", "JavaScript", "Tailwind CSS", "Git", "GitHub", "Ant Design", "Material UI"]
   },
   {
     id: 3,
-    title: "Freelance Web Developer",
-    company: "Self-Employed",
-    location: "Remote",
-    period: "2021 - 2022",
+    title: "Web Developer Intern",
+    company: "Prodigy Info Tech",
+    location: "Karachi, Pakistan (Remote)",
+    period: "March 2025 - April 2025",
     description: [
       "Created custom websites for small businesses and startups",
       "Managed full project lifecycle from requirements to deployment",
       "Delivered projects on time and within budget constraints",
       "Provided ongoing maintenance and support for client websites"
     ],
-    technologies: ["HTML/CSS", "JavaScript", "WordPress", "PHP", "MySQL"]
+    technologies: ["HTML/CSS", "JavaScript", "Git", "GitHub"]
   }
 ];
 
