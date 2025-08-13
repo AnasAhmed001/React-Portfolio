@@ -92,7 +92,7 @@ const Experience = () => {
           </p>
         </AnimatedSection>
 
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {experiences.map((experience, index) => (
             <AnimatedSection
               key={experience.id}
