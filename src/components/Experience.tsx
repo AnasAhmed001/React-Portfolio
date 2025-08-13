@@ -101,7 +101,7 @@ const Experience = () => {
               className="relative"
             >
               <motion.div
-                className="glass rounded-2xl p-6 md:p-8 border border-border/50"
+                className="glass rounded-2xl p-6 md:p-8 border border-border/50 h-auto min-h-[320px] flex flex-col"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
