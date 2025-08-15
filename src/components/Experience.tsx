@@ -26,7 +26,7 @@ const experiences: ExperienceItem[] = [
       "Optimized application performance resulting in 40% faster load times",
       "Worked using AWS and its image recognition services and S3 storage"
     ],
-    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "AWS"]
+    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "AWS", "Material UI"]
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const experiences: ExperienceItem[] = [
     location: "Karachi, Pakistan (Remote)",
     period: "May 2025 - July 2025",
     description: [
-      "Contributed to a student management sytem using React and ",
+      "Contributed to a student management sytem using React and by integrating backend Api's.",
       "Worked closely with senior developers to learn best practices",
       "Implemented responsive designs and ensured cross-browser compatibility",
       "Assisted in debugging and testing web applications"
