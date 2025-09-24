@@ -92,7 +92,7 @@ const HeroContent = () => {
           </motion.a>
           
           <motion.a
-            href="/Best Resume.pdf"
+            href="/Anas_Ahmed_Resume.pdf"
             download="Anas Ahmed resume.pdf"
             className={cn(
               "inline-flex items-center justify-center rounded-md px-6 py-3",

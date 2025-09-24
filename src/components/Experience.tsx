@@ -21,10 +21,9 @@ const experiences: ExperienceItem[] = [
     location: "Karachi, Pakistan (Onsite)",
     period: "July 2025 - Present",
     description: [
-      "Developed and maintained web applications using React and TypeScript",
-      "Led the development team to deliver new features on time and at high quality",
-      "Optimized application performance resulting in 40% faster load times",
-      "Worked using AWS and its image recognition services and S3 storage"
+      "Built production-ready React.js apps with Shadcn UI and Tailwind CSS, including Saylani Moments a face-detecting gallery built exclusively for Saylani Welfare International that streamlined event photo delivery.",
+      "Integrated AWS S3, DynamoDB and Lambda to optimize cloud functionality, reducing data retrieval time and boosting app performance.",
+      "Currently building an AI SaaS platform frontend with Next.js and LinkedIn/X integrations for automated content creation and scheduling to enhance engagement and follower growth."
     ],
     technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "AWS", "Material UI"]
   },
