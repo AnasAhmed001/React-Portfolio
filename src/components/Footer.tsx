@@ -16,7 +16,7 @@ const Footer = () => {
             Portfolio
           </motion.div>
           <p className="text-sm text-muted-foreground">
-            © {currentYear} All rights reserved.
+            © {currentYear} Anas Ahmed All rights reserved.
           </p>
         </div>
         

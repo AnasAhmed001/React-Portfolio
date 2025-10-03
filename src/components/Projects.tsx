@@ -8,6 +8,14 @@ import { cn } from "@/lib/utils";
 const projects: Project[] = [
   {
     id: 1,
+    title: "Saylani Moments",
+    description: "A face-detecting gallery built exclusively for Saylani Welfare International that streamlined event photo delivery.",
+    image: "/Saylani-Moments.png",
+    tags: ["React", "Tailwind CSS", "Shadcn UI", "AWS", "DynamoDB", "Lambda", "S3"],
+    liveUrl: "https://moments.saylanimit.com/",
+  },
+  {
+    id: 2,
     title: "Blogging App",
     description: "A clean, modern Blogging App built using ReactJS, Tailwind CSS, DaisyUI. It includes Firebase Authentication and Firestorage for seamless data storage and retrieval",
     image: "/Blogging_App.webp",
@@ -16,7 +24,7 @@ const projects: Project[] = [
     githubUrl: "https://github.com/AnasAhmed001/React-blogging-website"
   },
   {
-    id: 2,
+    id: 3,
     title: "Meme Maker App",
     description: "Built a Meme Maker App using NextJS and TailwindCSS which comes with in which user can create and download ",
     image: "/meme_maker.jpg",
@@ -25,7 +33,7 @@ const projects: Project[] = [
     githubUrl: "https://github.com/AnasAhmed001/meme-maker"
   },
   {
-    id: 3,
+    id: 4,
     title: "Weather App",
     description: "Built a beautiful weather app using ReactJS and tailwind CSS. Featuring a Responsive UI and geolocation to get user current loacation and display the weather using OpenWeatherApi.",
     image: "/weather-app.jpg",
@@ -34,7 +42,7 @@ const projects: Project[] = [
     githubUrl: "https://github.com/AnasAhmed001/React-Weather-App"
   },
   {
-    id: 4,
+    id: 5,
     title: "A Responsive Landing Page",
     description: "Created a responsive landing page using HTML, CSS, JavaScript. Featuring smooth Scrolling, responsive design and smooth animations",
     image: "/Landing_page.png",

@@ -25,7 +25,7 @@ const experiences: ExperienceItem[] = [
       "Integrated AWS S3, DynamoDB and Lambda to optimize cloud functionality, reducing data retrieval time and boosting app performance.",
       "Currently building an AI SaaS platform frontend with Next.js and LinkedIn/X integrations for automated content creation and scheduling to enhance engagement and follower growth."
     ],
-    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "AWS", "Material UI"]
+    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "AWS", "Shadcn UI", "Ant Design", "Material UI"]
   },
   {
     id: 2,
