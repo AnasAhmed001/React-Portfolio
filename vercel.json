@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.anasahmed.me"
+        }
+      ],
+      "destination": "https://anasahmed.me/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "anas-ahmed.vercel.app"
+        }
+      ],
+      "destination": "https://anasahmed.me/$1",
+      "permanent": true
+    }
+  ]
+}
