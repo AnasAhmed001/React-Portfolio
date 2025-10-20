@@ -9,7 +9,7 @@ const AboutContent = () => {
         <div className="aspect-[3/2] relative overflow-hidden rounded-2xl glass">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10" />
           <img
-            src="/profile-pic.png"
+            src="/profile-pic.webp"
             alt="Anas Ahmed"
             className="w-full h-full object-cover"
           />

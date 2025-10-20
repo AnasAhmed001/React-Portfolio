@@ -19,13 +19,13 @@ const experiences: ExperienceItem[] = [
     title: "React.Js Developer Intern",
     company: "Saylani Tech",
     location: "Karachi, Pakistan (Onsite)",
-    period: "July 2025 - Present",
+    period: "July 2025 - October 2025",
     description: [
       "Built production-ready React.js apps with Shadcn UI and Tailwind CSS, including Saylani Moments a face-detecting gallery built exclusively for Saylani Welfare International that streamlined event photo delivery.",
-      "Integrated AWS S3, DynamoDB and Lambda to optimize cloud functionality, reducing data retrieval time and boosting app performance.",
-      "Currently building an AI SaaS platform frontend with Next.js and LinkedIn/X integrations for automated content creation and scheduling to enhance engagement and follower growth."
+      "Developed an AI-powered content generator platform using that connects with users’ social accounts, creates personalized content roadmaps, and schedules posts automatically either at the user’s chosen times or on the optimized times suggested by AI for maximum engagement.",
+      "Led a team of developers, fostering collaboration and guiding the project from planning to deployment, which strengthened my leadership and teamwork skills."
     ],
-    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "AWS", "Shadcn UI", "Ant Design", "Material UI"]
+    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Git", "GitHub", "AWS", "Shadcn UI", "Ant Design", "Material UI", "Nodejs", "Expressjs", "MongoDB", "Redis", "BullMQ", "Python"]
   },
   {
     id: 2,

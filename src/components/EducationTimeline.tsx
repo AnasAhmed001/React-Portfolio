@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { BookOpen, GraduationCap, Award, Calendar } from "lucide-react";
 
@@ -19,24 +18,24 @@ const educationItems: EducationItem[] = [
     icon: <GraduationCap size={20} />,
   },
   {
+    year: "2023 - Present",
+    degree: "Cloud Applied Agentic AI Developer",
+    institution: "Governor House (GIAIC)",
+    description: "Learning Cloud Applied Agentic AI development at GIAIC, focusing on building intelligent applications using cloud technologies and AI frameworks.",
+    icon: <BookOpen size={20} />,
+  },
+  {
     year: "2023 - 2024",
     degree: "MERN Stack Development Student",
     institution: "Sylani Mass IT Training (SMIT)",
     description: "Completed MERN Stack training at Saylani, gaining hands-on experience in MongoDB, Express.js, React, and Node.js to build full-stack web applications.",
-    icon: <BookOpen size={20} />,
+    icon: <Award size={20} />,
   },
   {
     year: "2022 - 2024",
     degree: "F.CS",
     institution: "Govt. Islami Science College",
     description: "Completed intermediate education in Computer Science from Islami Science College with good grades.",
-    icon: <Award size={20} />,
-  },
-  {
-    year: "2022",
-    degree: "Martriculation",
-    institution: "Children Garden School",
-    description: "Completed Matriculation in Computer Science with A Grade and with various awards.",
     icon: <Calendar size={20} />,
   },
 ];
@@ -47,18 +46,17 @@ const EducationTimeline = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.2, // Start after container fades in
+        staggerChildren: 0.1, // Reduced from 0.2
+        delayChildren: 0, // Removed delay to start immediately
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0 }, // Removed y: 30 to prevent layout shift
     visible: {
       opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] }, // Faster animation
     },
   };
 
@@ -68,7 +66,7 @@ const EducationTimeline = () => {
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.05, margin: "50px" }} // Lower threshold + margin for earlier trigger
     >
       <motion.div
         className="text-center mb-10"

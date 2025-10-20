@@ -31,7 +31,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       }}
       viewport={{ once: true, amount: 0.3 }}
     >
-      <div className="aspect-video overflow-hidden">
+      <div className="object-cover overflow-hidden">
         <motion.div
           className="w-full h-full bg-muted flex items-center justify-center"
           whileHover={{ scale: 1.05 }}
