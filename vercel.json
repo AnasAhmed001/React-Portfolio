@@ -9,7 +9,7 @@
         }
       ],
       "destination": "https://anasahmed.me/$1",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/(.*)",
@@ -20,7 +20,7 @@
         }
       ],
       "destination": "https://anasahmed.me/$1",
-      "permanent": true
+      "statusCode": 301
     }
   ]
 }
